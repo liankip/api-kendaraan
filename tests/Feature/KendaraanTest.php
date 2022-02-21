@@ -50,9 +50,9 @@ class KendaraanTest extends TestCase
         $user = User::first();
         $token = JWTAuth::fromUser($user);
 
-        $baseUrl = Config::get('app.url') . '/api/v1/auth/me';
+        $baseUrl = Config::get('app.url') . '/api/v1/kendaraan/penjualan-kendaraan';
 
-        $response = $this->json('POST', $baseUrl . '/', (array)'', [
+        $response = $this->json('GET', $baseUrl . '/', (array)'', [
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
         ]);
@@ -66,9 +66,9 @@ class KendaraanTest extends TestCase
         $user = User::first();
         $token = JWTAuth::fromUser($user);
 
-        $baseUrl = Config::get('app.url') . '/api/v1/auth/me';
+        $baseUrl = Config::get('app.url') . '/api/v1/kendaraan/penjualan-perkendaraan';
 
-        $response = $this->json('POST', $baseUrl . '/', (array)'', [
+        $response = $this->json('GET', $baseUrl . '/', (array)'', [
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
         ]);
