@@ -26,7 +26,7 @@ Route::group(['prefix' => 'v1'], function ($router) {
     });
 
     Route::group(['prefix' => 'kendaraan'], function ($router) {
-        Route::get('/', [KendaraanController::class, 'collectionKendaraan']);
+        Route::get('/', [KendaraanController::class, 'collectionStokKendaraan']);
 
         Route::get('penjualan-kendaraan', [KendaraanController::class, 'collectionPenjualanKendaraan']);
 

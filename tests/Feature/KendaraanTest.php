@@ -32,13 +32,10 @@ class KendaraanTest extends TestCase
                 'data' => [
                     '*' => [
                         'id',
-                        'kn_nama',
-                        'kn_warna',
-                        'kn_harga',
-                        'id_motor',
-                        'id_mobil',
-                        'created_at',
-                        'updated_at'
+                        'nama',
+                        'warna',
+                        'harga',
+                        'stok'
                     ]
                 ]
             ]);
@@ -57,7 +54,19 @@ class KendaraanTest extends TestCase
             'Authorization' => 'Bearer ' . $token,
         ]);
 
-        $response->assertStatus(200);
+        $response->assertStatus(200)
+            ->assertJsonStructure([
+                'success',
+                'message',
+                'data' => [
+                    '*' => [
+                        'id',
+                        'nama',
+                        'warna',
+                        'terjual'
+                    ]
+                ]
+            ]);
     }
 
     /** @test */
@@ -73,6 +82,20 @@ class KendaraanTest extends TestCase
             'Authorization' => 'Bearer ' . $token,
         ]);
 
-        $response->assertStatus(200);
+        $response->assertStatus(200)
+            ->assertJsonStructure([
+                'success',
+                'message',
+                'data' => [
+                    '*' => [
+                        'id',
+                        'nama',
+                        'warna',
+                        'harga',
+                        'terjual',
+                        'total'
+                    ]
+                ]
+            ]);
     }
 }

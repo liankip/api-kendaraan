@@ -14,12 +14,12 @@ class KendaraanController extends Controller
         $this->middleware('auth:api', ['except' => ['login']]);
     }
 
-    public function collectionKendaraan(): \Illuminate\Http\JsonResponse
+    public function collectionStokKendaraan(): \Illuminate\Http\JsonResponse
     {
         return response()->json([
             'success' => true,
             'message' => "Data show successfully",
-            'data' => $this->kendaraanRepository->allCollectionKendaraan()
+            'data' => $this->kendaraanRepository->allCollectionStokKendaraan()
         ]);
     }
 

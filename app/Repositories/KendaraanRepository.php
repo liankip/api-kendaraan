@@ -3,23 +3,64 @@
 namespace App\Repositories;
 
 use App\Models\Kendaraan;
-use App\Repositories\KendaraanRepositoryInterface;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Collection;
 
 class KendaraanRepository implements KendaraanRepositoryInterface
 {
-    public function allCollectionKendaraan()
+    public function allCollectionStokKendaraan()
     {
-        return Kendaraan::all();
+        $kendaraanStok = new Collection();
+        foreach(Kendaraan::all() as $data)
+        {
+            if ($data->kendaraanable) {
+                $kendaraanStok->push((object)[
+                    'id' => $data->id,
+                    'nama' => $data->kn_nama,
+                    'warna' => $data->kn_warna,
+                    'harga' => $data->kn_harga,
+                    'stok' => $data->kendaraanable->stok
+                ]);
+            }
+        }
+
+        return $kendaraanStok;
     }
 
     public function allCollectionPenjualanKendaraan()
     {
-        return Kendaraan::all();
+        $kendaraanPenjualan = new Collection();
+        foreach(Kendaraan::all() as $data)
+        {
+            if ($data->kendaraanable) {
+                $kendaraanPenjualan->push((object)[
+                    'id' => $data->id,
+                    'nama' => $data->kn_nama,
+                    'warna' => $data->kn_warna,
+                    'terjual' => $data->kendaraanable->terjual
+                ]);
+            }
+        }
+
+        return $kendaraanPenjualan;
     }
 
     public function allCollectionPenjualanPerkendaraan()
     {
-        return Kendaraan::all();
+        $kendaraanPerPenjualan = new Collection();
+        foreach(Kendaraan::all() as $data)
+        {
+            if ($data->kendaraanable) {
+                $kendaraanPerPenjualan->push((object)[
+                    'id' => $data->id,
+                    'nama' => $data->kn_nama,
+                    'warna' => $data->kn_warna,
+                    'harga' => $data->kn_harga,
+                    'terjual' => $data->kendaraanable->terjual,
+                    'total' => $data->kn_harga * $data->kendaraanable->terjual
+                ]);
+            }
+        }
+
+        return $kendaraanPerPenjualan;
     }
 }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Motor extends Model
 {
     use HasFactory;
+
+    public function kendaraans()
+    {
+        return $this->morphOne(Kendaraan::class, 'kendaraanable');
+    }
 }

@@ -18,9 +18,16 @@ class CreateKendaraansTable extends Migration
             $table->string('kn_nama', 100);
             $table->string('kn_warna', 20);
             $table->integer('kn_harga');
-            $table->foreignId('id_motor')->nullable();
-            $table->foreignId('id_mobil')->nullable();
+//            $table->foreign('id_kendaraan')->references('id')->on('motors');
+//            $table->foreignId('id_kendaraan')->nullable();
+//            $table->integer('type_kendaraan');
+            $table->integer('kendaraanable_id');
+            $table->string('kendaraanable_type');
             $table->timestamps();
+
+//            $table->foreign('user_id')->references('id')->on('users');
+
+            // $table->foreign('id_kendaraan')->references('id')->on('mobils');
         });
     }
 

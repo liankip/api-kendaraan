@@ -16,7 +16,9 @@ class MobilFactory extends Factory
         return [
             'mb_mesin' => $this->faker->randomElement(['Silinder', 'Diesel']),
             'mb_kapasistas_penumpang' => $this->faker->randomElement([2, 4, 6]),
-            'mb_tipe' => $this->faker->randomElement(['Convertible', 'Pick Up', 'Mini Bus'])
+            'mb_tipe' => $this->faker->randomElement(['Convertible', 'Pick Up', 'Mini Bus']),
+            'stok' => rand(1, 100),
+            'terjual' => rand(1, 1000),
         ];
     }
 }

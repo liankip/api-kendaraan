@@ -18,6 +18,8 @@ class CreateMobilsTable extends Migration
             $table->string('mb_mesin', 100);
             $table->integer('mb_kapasistas_penumpang');
             $table->string('mb_tipe', 100);
+            $table->integer('stok');
+            $table->integer('terjual');
             $table->timestamps();
         });
     }

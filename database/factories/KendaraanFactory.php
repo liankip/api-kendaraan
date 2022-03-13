@@ -15,12 +15,15 @@ class KendaraanFactory extends Factory
      */
     public function definition()
     {
+        $faker = (new \Faker\Factory())::create();
+        $faker->addProvider(new \Faker\Provider\Fakecar($faker));
+
         return [
-            'kn_nama' => $this->faker->name(),
+            'kn_nama' => $faker->vehicle,
             'kn_warna' => $this->faker->colorName(),
             'kn_harga' => $this->faker->numberBetween(0, 100000000),
-            'id_motor' => $this->faker->randomElement([1, 2, null]),
-            'id_mobil' => $this->faker->randomElement([3, 2, 1, null])
+            'kendaraanable_id' => rand(1, 20),
+            'kendaraanable_type' => rand(0, 1) == 1 ? 'App\Models\Motor' : 'App\Models\Mobil',
         ];
     }
 }

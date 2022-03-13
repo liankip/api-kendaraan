@@ -9,13 +9,8 @@ class Kendaraan extends Model
 {
     use HasFactory;
 
-    public function motor(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function kendaraanable()
     {
-        return $this->belongsTo(Motor::class);
-    }
-
-    public function mobil(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(Mobil::class);
+        return $this->morphTo(__FUNCTION__, 'kendaraanable_type', 'kendaraanable_id');
     }
 }

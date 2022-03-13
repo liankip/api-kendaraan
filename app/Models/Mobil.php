@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Mobil extends Model
 {
     use HasFactory;
+
+    public function kendaraans()
+    {
+        return $this->morphOne(Kendaraan::class, 'kendaraanable');
+    }
 }

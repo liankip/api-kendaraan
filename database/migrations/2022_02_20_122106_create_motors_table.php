@@ -18,6 +18,8 @@ class CreateMotorsTable extends Migration
             $table->string('mt_mesin', 100);
             $table->string('mt_tipe_suspensi', 100);
             $table->string('mt_tipe_transmisi', 100);
+            $table->integer('stok');
+            $table->integer('terjual');
             $table->timestamps();
         });
     }

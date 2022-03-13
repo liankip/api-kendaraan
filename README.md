@@ -3,6 +3,7 @@
 - buat nama database `db_kendaraanapi`
 - ubah port mysql di .env default 3306 
 - ubah config nama dan password mysql
+- jwt generate => `php artisan jwt:secret`
 - lakukan `php artisan migrate --seed` atau `php artisan migrate:fresh --seed`
 
 ## Testing dan routing

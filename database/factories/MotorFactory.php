@@ -18,7 +18,9 @@ class MotorFactory extends Factory
         return [
             'mt_mesin' => $this->faker->randomElement(['1 silinder', 'in-line twin', 'tripel in-line']),
             'mt_tipe_suspensi' => $this->faker->randomElement(['Pararel Fork', 'Plunger Rear', 'Swing Arm Rear']),
-            'mt_tipe_transmisi' => $this->faker->randomElement(['Constant', 'Syncron', 'Sliding'])
+            'mt_tipe_transmisi' => $this->faker->randomElement(['Constant', 'Syncron', 'Sliding']),
+            'stok' => rand(1, 100),
+            'terjual' => rand(1, 1000),
         ];
     }
 }
