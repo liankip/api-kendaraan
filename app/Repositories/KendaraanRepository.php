@@ -56,11 +56,14 @@ class KendaraanRepository implements KendaraanRepositoryInterface
                     'warna' => $data->kn_warna,
                     'harga' => $data->kn_harga,
                     'terjual' => $data->kendaraanable->terjual,
-                    'total' => $data->kn_harga * $data->kendaraanable->terjual
+                    'total' => $data->kn_harga * $data->kendaraanable->terjual,
+                    'as' => $data->kendaraanable_type
                 ]);
             }
         }
 
-        return $kendaraanPerPenjualan;
+        $grouped = $kendaraanPerPenjualan->groupBy('as');
+
+        return $grouped->all();
     }
 }

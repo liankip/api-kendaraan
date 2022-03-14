@@ -87,13 +87,15 @@ class KendaraanTest extends TestCase
                 'success',
                 'message',
                 'data' => [
-                    '*' => [
-                        'id',
-                        'nama',
-                        'warna',
-                        'harga',
-                        'terjual',
-                        'total'
+                    "*" => [
+                        '*' => [
+                            'id',
+                            'nama',
+                            'warna',
+                            'harga',
+                            'terjual',
+                            'total'
+                        ]
                     ]
                 ]
             ]);
