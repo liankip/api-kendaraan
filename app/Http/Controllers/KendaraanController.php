@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\KendaraanRepositoryInterface;
+use Illuminate\Http\Request;
 
 class KendaraanController extends Controller
 {
@@ -20,6 +21,33 @@ class KendaraanController extends Controller
             'success' => true,
             'message' => "Data show successfully",
             'data' => $this->kendaraanRepository->allCollectionStokKendaraan()
+        ]);
+    }
+
+    public function addKendaraan(Request $request)
+    {
+        return response()->json([
+            'success' => true,
+            'message' => "Data successfully created",
+            'data' => $this->kendaraanRepository->addKendaraan($request)
+        ]);
+    }
+
+    public function editKendaraan(Request $request, $id)
+    {
+        return response()->json([
+            'success' => true,
+            'message' => "Data successfully updated",
+            'data' => $this->kendaraanRepository->editKendaraan($request, $id)
+        ]);
+    }
+
+    public function orderKendaraan(Request $request)
+    {
+        return response()->json([
+            'success' => true,
+            'message' => "Order successfully created",
+            'data' => $this->kendaraanRepository->orderKendaraan($request)
         ]);
     }
 
